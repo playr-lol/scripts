@@ -38,5 +38,8 @@ workspace.ChildAdded:Connect(function(test)
                 playNotif()
             end
         end
+    elseif test:IsA("Model") and test.PrimaryPart.Name == "RushNew" then
+        game:GetService("StarterGui"):SetCore("SendNotification",{Title = test.Name.. " has spawned.", Text = "Get in a closet!", Icon = "rbxassetid://11401835408"})
+        playNotif()
     end
 end)
