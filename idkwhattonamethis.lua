@@ -1,3 +1,6 @@
+-- you will need to use vfly in infinite yield before this
+-- if you get hit by anything your body disapears and cutscenes will break u
+
 repeat task.wait() until game.Players.LocalPlayer.Character ~= nil
 local char = game.Players.LocalPlayer.Character
 char.Humanoid.Health = 0
