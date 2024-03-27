@@ -11,6 +11,9 @@ task.wait()
 workspace.Camera.CameraSubject = char.HumanoidRootPart
 workspace.Camera.CameraType = "Custom"
 local hatstuff = {}
+if char.Collision ~= nil then
+    char.Collision:Destroy()
+end
 if char.RagdollConstraints ~= nil then
     char.RagdollConstraints:Destroy()
 end
