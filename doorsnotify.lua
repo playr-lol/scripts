@@ -1,6 +1,8 @@
 local entities={"RushMoving","AmbushMoving","Snare","A60","A120","SeekMoving","JeffTheKiller","Eyes"}
 local player = game.Players.LocalPlayer
 
+-- THIS SUCKS ASS DONT USE IT IF YOU HAVE A GOOD SCRIPT
+
 local function playNotif()
     local Notification = Instance.new("Sound")
     Notification.Parent = game.SoundService
