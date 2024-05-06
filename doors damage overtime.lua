@@ -1,6 +1,9 @@
 local doorHealthGained = 7
 local itemHealthGained = 15
 
+local tickrate = 0.1 -- how many seconds until update healthh
+local damage = 0.1 -- how much damage will it do
+
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat task.wait() until game:GetService("ReplicatedStorage").GameData.LatestRoom.Value ~= 0
 local ScreenGui = Instance.new("ScreenGui")
@@ -22,12 +25,14 @@ local items = {}
 game:GetService("ReplicatedStorage").GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
     if player.Character and player.Character:FindFirstChildWhichIsA("Humanoid") then
         local humanoid = player.Character:FindFirstChildWhichIsA("Humanoid")
-        if hptaken < doorHealthGained then
-            humanoid.Health += hptaken
-            hptaken = doorHealthGained
-        else
-            humanoid.Health += doorHealthGained
-            hptaken -= doorHealthGained
+        if humanoid.Health > 0 then
+            if hptaken < doorHealthGained then
+                humanoid.Health += hptaken
+                hptaken = doorHealthGained
+            else
+                humanoid.Health += doorHealthGained
+                hptaken -= doorHealthGained
+            end
         end
     end
 end)
@@ -67,19 +72,21 @@ player.Character.ChildAdded:Connect(function(ae)
         end
     end
 end)
-while task.wait(0.1) do
+game:GetService("RunService").RenderStepped:Connect(function()
+    if player.PlayerGui:FindFirstChild("MainUI") then task.spawn(function() require(player.PlayerGui.MainUI.Initiator.Main_Game).csgo = CFrame.new(0,0,0) end) end -- doing a task.spawn here cause if you die it breaks
+end)
+while task.wait(tickrate) do
     if player.Character and player.Character:FindFirstChildWhichIsA("Humanoid") then
         local humanoid = player.Character:FindFirstChildWhichIsA("Humanoid")
         if humanoid.Health > 0 then
-            humanoid.Health -= 0.1
-            hptaken += 0.1
-            hpeaten += 0.1
+            humanoid.Health -= damage
+            hptaken += damage
+            hpeaten += damage
             TextLabel.Text = (string.format("%.1f", hpeaten)).. " total HP eaten."
         end
     end
     if player.PlayerGui:FindFirstChild("MainUI") then
         player.PlayerGui.MainUI:WaitForChild("Initiator").Main_Game.Health.Hit.Volume = 0
         player.PlayerGui.MainUI:WaitForChild("Initiator").Main_Game.Health.Ringing.SoundId = "rbxassetid://0"
-        task.spawn(function() require(player.PlayerGui.MainUI.Initiator.Main_Game).csgo = CFrame.new(0,0,0) end) -- doing a task.spawn here cause if you die it breaks
     end
 end
