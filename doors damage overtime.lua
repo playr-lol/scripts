@@ -74,7 +74,7 @@ while task.wait(0.1) do
             humanoid.Health -= 0.1
             hptaken += 0.1
             hpeaten += 0.1
-            TextLabel.Text = (string.format("%.1f", hptaken)).. " HP eaten."
+            TextLabel.Text = (string.format("%.1f", hpeaten)).. " total HP eaten."
         end
     end
     if player.PlayerGui:FindFirstChild("MainUI") then
