@@ -35,6 +35,7 @@ player.CharacterAdded:Connect(function()
     player.Character.ChildAdded:Connect(function(ae)
         if not ae:IsA("Tool") then return end
         if table.find(items, ae) then return end
+        table.insert(items, ae)
         if player.Character and player.Character:FindFirstChildWhichIsA("Humanoid") then
             local humanoid = player.Character:FindFirstChildWhichIsA("Humanoid")
             if humanoid.Health > 0 then
@@ -52,6 +53,7 @@ end)
 player.Character.ChildAdded:Connect(function(ae)
     if not ae:IsA("Tool") then return end
     if table.find(items, ae) then return end
+    table.insert(items, ae)
     if player.Character and player.Character:FindFirstChildWhichIsA("Humanoid") then
         local humanoid = player.Character:FindFirstChildWhichIsA("Humanoid")
         if humanoid.Health > 0 then
@@ -72,12 +74,12 @@ while task.wait(0.1) do
             humanoid.Health -= 0.1
             hptaken += 0.1
             hpeaten += 0.1
-            TextLabel.Text = --[[(string.format("%.1f", hptaken)).. "/".. ]]tostring(math.ceil(hpeaten)).. " HP eaten."
+            TextLabel.Text = --[[(string.format("%.1f", hptaken)).. "/".. ]]tostring(hptaken).. " HP eaten."
         end
     end
     if player.PlayerGui:FindFirstChild("MainUI") then
         player.PlayerGui.MainUI:WaitForChild("Initiator").Main_Game.Health.Hit.Volume = 0
         player.PlayerGui.MainUI:WaitForChild("Initiator").Main_Game.Health.Ringing.SoundId = "rbxassetid://0"
-        require(player.PlayerGui.MainUI.Initiator.Main_Game).csgo = CFrame.new(0,0,0)
+        task.spawn(function() require(player.PlayerGui.MainUI.Initiator.Main_Game).csgo = CFrame.new(0,0,0) end) -- doing a task.spawn here cause if you die it breaks
     end
 end
