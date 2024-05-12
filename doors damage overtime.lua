@@ -1,5 +1,5 @@
                                                                                              local doorHealthGained local itemHealthGained local breakerHealthGained local tickrate local damage
-
+-- if you find this hi
 
  --                 Heal settings
                  doorHealthGained = 7
