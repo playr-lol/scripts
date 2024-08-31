@@ -18,13 +18,13 @@ workspace.ChildAdded:Connect(function(test)
         if test:IsDescendantOf(workspace) then
             print(test.Name)
             if (test.Name == "RushMoving") then
-                game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Rush has spawned.", Text = "Get in a closet!", Icon = getcustomasset("https://static.wikia.nocookie.net/doors-game/images/4/4d/Rush1.png/revision/latest?cb=20240209082944")})
+                game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Rush has spawned.", Text = "Get in a closet!", Icon = "https://static.wikia.nocookie.net/doors-game/images/4/4d/Rush1.png/revision/latest?cb=20240209082944"})
                 playNotif()
             elseif (test.name == "AmbushMoving") then
-                game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Ambush has spawned.", Text = "Get in a closet!", Icon = getcustomasset("https://static.wikia.nocookie.net/doors-game/images/6/60/Ambush2.png/revision/latest?cb=20220916122448")})
+                game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Ambush has spawned.", Text = "Get in a closet!", Icon = "https://static.wikia.nocookie.net/doors-game/images/6/60/Ambush2.png/revision/latest?cb=20220916122448"})
                 playNotif()
             elseif (test.name == "A60") then
-                game:GetService("StarterGui"):SetCore("SendNotification",{Title = "A60 has spawned.", Text = "Get in a locker!", Icon = getcustomasset("https://static.wikia.nocookie.net/doors-game/images/8/8c/A-60_DOORS.png/revision/latest?cb=20230217032419")})
+                game:GetService("StarterGui"):SetCore("SendNotification",{Title = "A60 has spawned.", Text = "Get in a locker!", Icon = "https://static.wikia.nocookie.net/doors-game/images/8/8c/A-60_DOORS.png/revision/latest?cb=20230217032419"})
                 playNotif()
             elseif (test.name == "A120") then
                 game:GetService("StarterGui"):SetCore("SendNotification",{Title = "A120 has spawned.", Text = "Get in a locker!", Icon = "https://static.wikia.nocookie.net/doors-game/images/e/ef/A-120_IDLE.png/revision/latest?cb=20231215083711"})
