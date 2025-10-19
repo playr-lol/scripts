@@ -14,6 +14,7 @@ module.makeBird = function(part: BasePart, target: BasePart)
 		mag = mag + (ogmag * 0.5)
 		trajectory = traj.SolveTrajectory(part.Position, mag, target.Position, target.AssemblyLinearVelocity, false)
 		itr += 1
+		if itr % 50 == 0 then task.wait() end
 	until trajectory or itr > 1000
 	if trajectory then
 		local ra = CFrame.lookAt(part.Position, trajectory)
