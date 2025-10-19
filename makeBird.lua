@@ -5,7 +5,7 @@ local isnetworkowner = function(part: BasePart) return part.ReceiveAge == 0 end
 module.isnetworkowner = isnetworkowner
 
 module.makeBird = function(part: BasePart, target: BasePart)
-	if part.Anchored then return end
+	if part.Anchored or not part or not target then return end
 	local ogmag = (target.Position - part.Position).Magnitude
 	local mag = ogmag
 	local trajectory = traj.SolveTrajectory(part.Position, mag, target.Position, target.AssemblyLinearVelocity, false)
