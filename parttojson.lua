@@ -1,3 +1,5 @@
+print("Starting to save...")
+local starttime = os.clock()
 local yay = {
 	Anchored = false,
 	Color = {0, 0, 0},
@@ -30,4 +32,4 @@ for i, v in workspace:GetDescendants() do
 end
 local name = `Parts_{game.PlaceId}.json`
 writefile(name, game:GetService("HttpService"):JSONEncode(yaya))
-print(`Saved {#yaya} values to workspace/{name}`)
+print(`Saved {#yaya} values to workspace/{name} in {os.clock() - starttime} seconds`)
