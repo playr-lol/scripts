@@ -97,18 +97,18 @@ local v_u_5 = {
 	"~",
 	" "
 }
-for v6 = 0, 255 do
+for v6 = 1, 255 do
 	v_u_4[v6] = 255
 end
-for v7 = 0, #v_u_5 do
+for v7 = 1, #v_u_5 do
 	v_u_4[v_u_2(v_u_5[v7])] = v7
 end
 local v_u_8 = {}
-for v9 = 0, 30 do
+for v9 = 1, 30 do
 	v_u_8[v9] = 2 ^ v9
 end
 local v_u_10 = {}
-for v11 = 0, 255 do
+for v11 = 1, 255 do
 	v_u_10[v11] = v3(v11)
 end
 return {
