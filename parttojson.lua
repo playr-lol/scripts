@@ -6,6 +6,7 @@ local yay = {
 	Transparency = 1,
 	Position = {0, 0, 0},
 	Rotation = {0, 0, 0},
+	Size = {0, 0, 0},
 	CanCollide = false,
 	Material = nil,
 	ClassName = ""
@@ -24,6 +25,7 @@ for i, v in workspace:GetDescendants() do
 		test.Transparency = v.Transparency
 		test.Position = {v.Position.X, v.Position.Y, v.Position.Z}
 		test.Rotation = {v.Rotation.X, v.Rotation.Y, v.Rotation.Z}
+		test.Size = {v.Size.X, v.Size.Y, v.Size.Z}
 		test.CanCollide = v.CanCollide
 		test.Material = tostring(v.Material)
 		test.ClassName = v.ClassName
